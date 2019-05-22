@@ -1,5 +1,5 @@
 <p align="center">
-<img src="http://andromedadev.com/assets/img/marca.png">
+    <img src="http://andromedadev.com/assets/img/marca.png">
 </p>
 
 <p align="center">
@@ -7,7 +7,7 @@
 </p>
 
 # ISO8583
-This package lorem ipsum
+This package can generate and parse messages in the ISO8583 standard.
 
 ## Installation
 
