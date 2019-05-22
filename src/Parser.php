@@ -4,6 +4,8 @@
 namespace Andromeda\ISO8583;
 
 
+use Andromeda\ISO8583\Contracts\IsoMessageContract;
+
 class Parser
 {
     const VARIABLE_LENGTH = TRUE;
@@ -18,11 +20,11 @@ class Parser
 
     /**
      * IsoParser constructor.
-     * @param array $dataElement
+     * @param IsoMessageContract $isoMessage
      */
-    public function __construct($dataElement = [])
+    public function __construct(IsoMessageContract $isoMessage)
     {
-        $this->dataElement = $dataElement;
+        $this->dataElement = $isoMessage->getIso();
     }
 
     /**
@@ -190,11 +192,11 @@ class Parser
         $this->_valid['bitmap'] = false;
         $inp = substr($this->_iso, 4, 32);
 
+        $primary    = '';
+        $secondary  = '';
+
         if (strlen($inp)>=16)
         {
-            $primary    = '';
-            $secondary  = '';
-
             //CONVERT TO BINARY
             for ($i = 0; $i<16; $i++)
             {
@@ -459,7 +461,22 @@ class Parser
      */
     public function validateISO()
     {
-        return $this->_valid['mti'] && $this->_valid['bitmap'] && $this->_valid['data'];
+        return $this->mti() && $this->bitmap() && $this->data();
+    }
+
+    private function data()
+    {
+        return array_key_exists('data', $this->_valid) && $this->_valid['data'];
+    }
+
+    private function bitmap()
+    {
+        return array_key_exists('bitmap', $this->_valid) && $this->_valid['bitmap'];
+    }
+
+    private function mti()
+    {
+        return array_key_exists('mti', $this->_valid) && $this->_valid['mti'];
     }
 
     /**
