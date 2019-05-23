@@ -27,9 +27,9 @@ namespace Andromeda\ISO8583;
 
 use Andromeda\ISO8583\Contracts\IsoMessageContract;
 
-class ExampleMessage implements IsoMessageContract
+class ExampleMessage extends MessageDefinition implements IsoMessageContract
 {
-    public function getIso()
+    public function getIso(): array
     {
         return [
             1   => ['b',   32,  self::FIXED_LENGTH],
@@ -37,9 +37,17 @@ class ExampleMessage implements IsoMessageContract
             3   => ['n',   6,   self::FIXED_LENGTH],
             4   => ['n',   12,  self::FIXED_LENGTH],
             5   => ['n',   12,  self::FIXED_LENGTH],
+            6   => ['n',   12,  self::FIXED_LENGTH],
+            7   => ['an',  10,  self::FIXED_LENGTH],
          ];
-     }
+    }
 }
+
+/*
+    Array definition:
+    1   => ['b',   32,  self::FIXED_LENGTH],
+    bit => ['type','size','is variable or fixed']
+*/
 ```
 - Example to read a ISO8583 using a ExampleMessage in package.
 ```php
