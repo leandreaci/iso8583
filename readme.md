@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-    <b>Version: 0.2</b> 
+    <b>Version: 0.3</b> 
 </p>
 
 # ISO8583
