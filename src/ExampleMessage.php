@@ -6,12 +6,9 @@ namespace Andromeda\ISO8583;
 
 use Andromeda\ISO8583\Contracts\IsoMessageContract;
 
-class ExampleMessage implements IsoMessageContract
+class ExampleMessage extends MessageDefinition implements IsoMessageContract
 {
-    const VARIABLE_LENGTH = TRUE;
-    const FIXED_LENGTH    = FALSE;
-
-    public function getIso()
+    public function getIso(): array
     {
         return [
             1   => ['b',   32,  self::FIXED_LENGTH],
