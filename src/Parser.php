@@ -340,6 +340,17 @@ class Parser
     }
 
     /**
+     * Helper to add data element
+     *
+     * @param int $bit
+     * @param mixed $data
+     */
+    public function addBit($bit, $data)
+    {
+        $this->addData($bit, $data);
+    }
+
+    /**
      * add data element
      *
      * @param int $bit
@@ -349,7 +360,9 @@ class Parser
     public function addData($bit, $data)
     {
         if ($bit<1 || $bit>128)
+        {
             throw new \Exception('addData invalid bit:'.$bit.':'.$data);
+        }
 
         $result = $this->_packElement($this->dataElement[$bit], $data);
 

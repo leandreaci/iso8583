@@ -3,7 +3,10 @@
 
 final class MessageDecodeTest extends \PHPUnit\Framework\TestCase
 {
-
+    /**
+     *
+     * @test
+     */
     public function test()
     {
         $message = new \Andromeda\ISO8583\ExampleMessage();
