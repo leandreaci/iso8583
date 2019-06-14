@@ -51,8 +51,8 @@ class ExampleMessage extends MessageDefinition implements IsoMessageContract
 ```
 - Example to read a ISO8583 using a ExampleMessage in package.
 ```php
-$messageDefinition = new Andromeda\ISO8583\ExampleMessage();
-$parser = new Andromeda\ISO8583\Parser($messageDefinition);
+$messageDefinition = new \Andromeda\ISO8583\ExampleMessage();
+$parser = new \Andromeda\ISO8583\Parser($messageDefinition);
 
 //Example 01 
 $parser->addMessage('0800...');
