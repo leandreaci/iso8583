@@ -26,6 +26,7 @@ composer require leandroandreaci/iso8583
 namespace Andromeda\ISO8583;
 
 use Andromeda\ISO8583\Contracts\IsoMessageContract;
+use Andromeda\ISO8583\MessageDefinition;
 
 class ExampleMessage extends MessageDefinition implements IsoMessageContract
 {
